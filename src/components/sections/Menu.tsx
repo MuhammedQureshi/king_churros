@@ -1,8 +1,10 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
 
-const MENU_ITEMS = [
+const FEATURED_ITEMS = [
   {
     id: 'churro_filled',
     title: 'Churros Filled (4pcs)',
@@ -18,7 +20,7 @@ const MENU_ITEMS = [
   {
     id: 'churro_family',
     title: 'Family Box (24 Sticks)',
-    description: 'A generous box containing 24 churros sticks, ideal for family gatherings or parties. Comes with 2 portions of Nutella dip and 2 portions of the Dulce De Leche dip.',
+    description: 'A generous box containing 24 churros sticks, ideal for family gatherings or parties.',
     tag: 'Royal Feast'
   },
   {
@@ -40,7 +42,7 @@ export function Menu() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-          {MENU_ITEMS.map((item) => {
+          {FEATURED_ITEMS.map((item) => {
             const imgData = PlaceHolderImages.find(img => img.id === item.id);
             return (
               <div key={item.id} className="group relative bg-card/40 backdrop-blur-sm rounded-[3rem] overflow-hidden border border-white/5 hover:border-primary/40 transition-all duration-700 hover:-translate-y-4 shadow-3xl">
@@ -76,15 +78,21 @@ export function Menu() {
                         <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Made Fresh Daily</span>
                       </div>
-                      <button className="text-white text-[10px] font-black uppercase tracking-[0.4em] px-6 py-3 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-all">
-                        SELECT
-                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-20 text-center">
+          <Link href="/menu">
+            <Button className="rounded-full px-16 py-10 bg-white text-black hover:bg-primary hover:text-black transition-all font-black tracking-[0.2em] uppercase text-lg shadow-2xl group">
+              Explore Full Menu
+              <span className="ml-4 group-hover:translate-x-2 transition-transform inline-block">→</span>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

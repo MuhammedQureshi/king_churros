@@ -36,6 +36,30 @@
       "description": "Close up of artisan churro texture",
       "imageUrl": "https://picsum.photos/seed/about-churro/800/800",
       "imageHint": "artisan churros"
+    },
+    {
+      "id": "brazilian_combo",
+      "description": "Assorted Brazilian pastries and churros box",
+      "imageUrl": "https://picsum.photos/seed/brazilian-combo/600/400",
+      "imageHint": "brazilian pastries"
+    },
+    {
+      "id": "pastel_brazil",
+      "description": "Golden deep fried pastel pastry",
+      "imageUrl": "https://picsum.photos/seed/pastel-brazil/600/400",
+      "imageHint": "fried pastry"
+    },
+    {
+      "id": "coxinha_large",
+      "description": "Large golden teardrop shaped coxinha",
+      "imageUrl": "https://picsum.photos/seed/coxinha/600/400",
+      "imageHint": "chicken croquette"
+    },
+    {
+      "id": "drinks_guarana",
+      "description": "Refreshing Brazilian Guarana soda",
+      "imageUrl": "https://picsum.photos/seed/guarana/600/400",
+      "imageHint": "soda can"
     }
   ]
 }
