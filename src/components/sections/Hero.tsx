@@ -1,8 +1,9 @@
+
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook, MapPin } from 'lucide-react';
 
 const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
@@ -13,7 +14,6 @@ export function Hero() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [isReady, setIsReady] = useState(false);
 
-  // Preload images for Canvas to avoid flickering
   useEffect(() => {
     let loadedCount = 0;
     const images: HTMLImageElement[] = [];
@@ -30,7 +30,7 @@ export function Hero() {
       const frameIndex = i.toString().padStart(3, '0');
       img.src = `${FRAME_URL_BASE}${frameIndex}_delay-0.041s.png`;
       img.onload = handleLoad;
-      img.onerror = handleLoad; // Continue if one fails
+      img.onerror = handleLoad;
       images.push(img);
     }
     imagesRef.current = images;
@@ -50,7 +50,6 @@ export function Hero() {
 
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
-      
       const imgAspect = img.width / img.height;
       const canvasAspect = canvasWidth / canvasHeight;
       
@@ -77,21 +76,16 @@ export function Hero() {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
-      handleScroll(); // Redraw immediately
+      handleScroll();
     };
 
     let requestRef: number;
     const handleScroll = () => {
       if (!containerRef.current) return;
-      
       const rect = containerRef.current.getBoundingClientRect();
       const scrollHeight = containerRef.current.scrollHeight - window.innerHeight;
       const scrollProgress = Math.max(0, Math.min(1, Math.abs(rect.top) / scrollHeight));
-      
-      const frameIndex = Math.min(
-        TOTAL_FRAMES - 1,
-        Math.floor(scrollProgress * TOTAL_FRAMES)
-      );
+      const frameIndex = Math.min(TOTAL_FRAMES - 1, Math.floor(scrollProgress * TOTAL_FRAMES));
       
       cancelAnimationFrame(requestRef);
       requestRef = requestAnimationFrame(() => renderFrame(frameIndex));
@@ -110,65 +104,56 @@ export function Hero() {
 
   return (
     <div ref={containerRef} className="parallax-container">
-      <div className="sticky-hero flex items-center">
-        {/* Animated Background Canvas */}
+      <div className="sticky-hero flex items-center justify-center">
         <canvas 
           ref={canvasRef}
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ 
-            filter: 'brightness(0.7)',
+            filter: 'brightness(0.5)',
             opacity: isReady ? 1 : 0,
-            transition: 'opacity 1s ease-in-out'
+            transition: 'opacity 1.5s ease-in-out'
           }}
         />
         
-        {/* Visual Overlay - Left Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2">
-          <div className="space-y-6 max-w-xl animate-fade-in">
-            <p className="font-headline text-primary text-xl font-bold tracking-[0.2em] uppercase">
-              King Churros
-            </p>
-            <h1 className="font-headline text-7xl md:text-9xl font-black text-white leading-tight uppercase">
-              King <br /> <span className="text-white">Churros</span>
-            </h1>
-            <p className="font-body text-lg md:text-xl text-white/90 font-bold tracking-[0.3em] uppercase border-y border-white/20 py-2 inline-block">
-              Fresh • Hot • Handcrafted
-            </p>
-            <p className="font-body text-muted-foreground text-lg leading-relaxed max-w-md">
-              Golden crispy churros made fresh to order, coated in cinnamon sugar and served with rich melted chocolate. A royal dessert experience in every bite.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button variant="outline" className="rounded-full px-8 py-6 border-white text-white hover:bg-white hover:text-black transition-all font-bold tracking-widest uppercase text-xs">
-                Order Now
-              </Button>
-              <Button className="rounded-full px-8 py-6 bg-white text-black hover:bg-primary transition-all font-bold tracking-widest uppercase text-xs">
-                View Menu
-              </Button>
-            </div>
+        {/* Center Content for Better Impact */}
+        <div className="relative z-10 container mx-auto px-6 text-center space-y-8 max-w-4xl animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mb-4">
+            <MapPin size={14} className="text-primary" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/80">
+              Located in Brixton
+            </span>
           </div>
 
-          {/* Right Visual Element */}
-          <div className="hidden md:flex justify-end items-center relative pr-12">
-            <div className="flex items-center space-x-6 animate-slide-up">
-              <div className="h-64 w-[1px] bg-white/30" />
-              <span className="font-headline text-[12rem] font-black text-white/10 select-none">
-                01
-              </span>
-            </div>
+          <h1 className="font-headline text-6xl sm:text-7xl md:text-9xl font-black text-white leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
+            King <span className="text-primary block">Churros</span>
+          </h1>
+
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <p className="font-body text-lg md:text-2xl text-white font-black tracking-[0.3em] uppercase drop-shadow-lg">
+              Fresh • Hot • Handcrafted
+            </p>
+            <p className="font-body text-white/80 text-sm md:text-base leading-relaxed tracking-wider drop-shadow-md">
+              Golden crispy churros made fresh to order in the heart of Brixton. <br className="hidden md:block" />
+              Claim your royal dessert experience.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+            <Button className="w-full sm:w-auto rounded-full px-12 py-8 bg-primary text-black hover:bg-white hover:scale-105 transition-all font-black tracking-widest uppercase text-sm shadow-2xl shadow-primary/20">
+              Order Now
+            </Button>
+            <Button variant="outline" className="w-full sm:w-auto rounded-full px-12 py-8 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all font-black tracking-widest uppercase text-sm">
+              View Menu
+            </Button>
           </div>
         </div>
 
-        {/* Bottom Socials */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center space-x-8 z-10">
-          <a href="#" className="text-white/50 hover:text-primary transition-colors">
-            <Instagram size={20} />
-          </a>
-          <a href="#" className="text-white/50 hover:text-primary transition-colors">
-            <span className="text-sm font-bold tracking-widest uppercase">TikTok</span>
-          </a>
-          <a href="#" className="text-white/50 hover:text-primary transition-colors">
-            <Facebook size={20} />
-          </a>
+        {/* Cinematic Visual Elements */}
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        
+        <div className="absolute bottom-12 left-12 hidden lg:flex flex-col gap-6 text-white/40">
+          <a href="#" className="hover:text-primary transition-colors"><Instagram size={20} /></a>
+          <a href="#" className="hover:text-primary transition-colors"><Facebook size={20} /></a>
         </div>
       </div>
     </div>

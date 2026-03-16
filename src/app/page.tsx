@@ -1,8 +1,9 @@
+
 import { Navbar } from '@/components/sections/Navbar';
 import { Hero } from '@/components/sections/Hero';
 import { ProductStory } from '@/components/sections/ProductStory';
+import { Menu } from '@/components/sections/Menu';
 import { Ingredients } from '@/components/sections/Ingredients';
-import { Nutrition } from '@/components/sections/Nutrition';
 import { Reviews } from '@/components/sections/Reviews';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -16,8 +17,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ProductStory />
+      <Menu />
       <Ingredients />
-      <Nutrition />
       <Reviews />
       <FAQ />
       <FinalCTA />

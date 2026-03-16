@@ -1,0 +1,41 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero_churro",
+      "description": "Golden crispy churros with chocolate dip",
+      "imageUrl": "https://picsum.photos/seed/churro-hero/1200/800",
+      "imageHint": "fresh churros"
+    },
+    {
+      "id": "churro_filled",
+      "description": "Churros filled with dulce de leche",
+      "imageUrl": "https://picsum.photos/seed/filled-churro/600/400",
+      "imageHint": "filled churros"
+    },
+    {
+      "id": "churro_box",
+      "description": "Box of 7 classic churro sticks",
+      "imageUrl": "https://picsum.photos/seed/churro-box/600/400",
+      "imageHint": "churros box"
+    },
+    {
+      "id": "churro_family",
+      "description": "Large family box of 24 churros with dips",
+      "imageUrl": "https://picsum.photos/seed/family-churro/600/400",
+      "imageHint": "party churros"
+    },
+    {
+      "id": "churro_decorated",
+      "description": "Gourmet decorated churro with toppings",
+      "imageUrl": "https://picsum.photos/seed/decorated-churro/600/400",
+      "imageHint": "gourmet churros"
+    },
+    {
+      "id": "about_churro",
+      "description": "Close up of artisan churro texture",
+      "imageUrl": "https://picsum.photos/seed/about-churro/800/800",
+      "imageHint": "artisan churros"
+    }
+  ]
+}
