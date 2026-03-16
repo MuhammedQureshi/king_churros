@@ -3,8 +3,8 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu as MenuIcon, X } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/components/ui/sheet';
+import { Menu as MenuIcon } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 
 const NAV_LINKS = [
@@ -23,46 +23,48 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
 
       const sections = NAV_LINKS.map(link => link.href.substring(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
-        if (element && window.scrollY >= element.offsetTop - 150) {
+        if (element && window.scrollY >= element.offsetTop - 200) {
           setActiveSection(section);
           break;
         }
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 px-4 md:px-12",
-      scrolled ? "bg-black/90 backdrop-blur-2xl border-b border-white/10 py-3" : "bg-transparent py-4 md:py-6"
+      "fixed top-0 left-0 right-0 z-[60] transition-all duration-700 ease-in-out px-4 md:px-12",
+      scrolled ? "bg-black/95 backdrop-blur-3xl border-b border-white/5 py-4" : "bg-transparent py-6 md:py-10"
     )}>
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
-        <Link href="/" className="font-headline text-xl md:text-3xl font-black tracking-tight text-white uppercase group flex items-center gap-2">
-          King <span className="text-primary group-hover:text-accent transition-colors">Churros</span>
+        <Link href="/" onClick={closeMenu} className="font-headline text-2xl md:text-3xl font-black tracking-tighter text-white uppercase group flex items-center gap-2">
+          King <span className="text-primary group-hover:text-white transition-colors">Churros</span>
         </Link>
         
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
+        <div className="hidden md:flex items-center space-x-10 lg:space-x-12">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "text-[9px] lg:text-[10px] font-black uppercase tracking-[0.3em] transition-all hover:text-primary whitespace-nowrap",
-                activeSection === link.href.substring(1) ? "text-primary" : "text-white/60"
+                "text-[10px] lg:text-[11px] font-black uppercase tracking-[0.4em] transition-all hover:text-primary whitespace-nowrap",
+                activeSection === link.href.substring(1) ? "text-primary" : "text-white/50"
               )}
             >
               {link.label}
             </a>
           ))}
-          <button className="bg-primary text-black px-6 lg:px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all shadow-lg shadow-primary/10">
+          <button className="bg-primary text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-primary/20">
             Order Now
           </button>
         </div>
@@ -71,26 +73,29 @@ export function Navbar() {
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <button className="text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
-                <MenuIcon size={24} />
+              <button className="text-white p-2 hover:bg-white/5 rounded-xl transition-colors">
+                <MenuIcon size={28} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10 text-white flex flex-col justify-center p-10 z-[70]">
-              <SheetTitle className="sr-only">Menu Navigation</SheetTitle>
-              <div className="space-y-8 text-center flex flex-col items-center">
+            <SheetContent side="right" className="bg-black/98 backdrop-blur-2xl border-white/5 text-white flex flex-col justify-center p-12 z-[70]">
+              <SheetTitle className="sr-only">Royal Menu</SheetTitle>
+              <div className="space-y-10 text-center flex flex-col items-center">
+                <Link href="/" onClick={closeMenu} className="font-headline text-3xl font-black text-white uppercase mb-4">
+                  King <span className="text-primary">Churros</span>
+                </Link>
                 {NAV_LINKS.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block text-3xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    className="block text-4xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-all"
+                    onClick={closeMenu}
                   >
                     {link.label}
                   </a>
                 ))}
                 <button 
-                  className="w-full max-w-[240px] bg-primary text-black py-4 rounded-full text-xs font-black uppercase tracking-widest mt-8 shadow-xl"
-                  onClick={() => setIsOpen(false)}
+                  className="w-full max-w-[280px] bg-primary text-black py-5 rounded-full text-sm font-black uppercase tracking-widest mt-10 shadow-2xl"
+                  onClick={closeMenu}
                 >
                   Order Now
                 </button>

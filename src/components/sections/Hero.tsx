@@ -47,7 +47,8 @@ export function Hero() {
 
     const renderFrame = (index: number) => {
       const img = imagesRef.current[index];
-      if (!img || !context) return;
+      // FIX: Check if image is loaded and not 'broken' before drawing
+      if (!img || !context || !img.complete || img.naturalWidth === 0) return;
 
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
@@ -85,6 +86,8 @@ export function Hero() {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const scrollHeight = containerRef.current.scrollHeight - window.innerHeight;
+      if (scrollHeight <= 0) return;
+      
       const scrollProgress = Math.max(0, Math.min(1, Math.abs(rect.top) / scrollHeight));
       const frameIndex = Math.min(TOTAL_FRAMES - 1, Math.floor(scrollProgress * TOTAL_FRAMES));
       
@@ -110,48 +113,50 @@ export function Hero() {
           ref={canvasRef}
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ 
-            filter: 'brightness(0.4)',
+            filter: 'brightness(0.35)',
             opacity: isReady ? 1 : 0,
-            transition: 'opacity(1.5s) ease-in-out'
+            transition: 'opacity 1.5s ease-in-out'
           }}
         />
         
-        <div className="relative z-10 container mx-auto px-6 text-center space-y-6 md:space-y-10 max-w-4xl pt-16 md:pt-0 animate-fade-in">
-          <h1 className="font-headline text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] md:leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
-            King <span className="text-primary block">Churros</span>
-          </h1>
-
-          <div className="space-y-3 md:space-y-4 max-w-2xl mx-auto">
-            <p className="font-body text-xs md:text-2xl text-white font-black tracking-[0.4em] uppercase drop-shadow-lg">
+        <div className="relative z-10 container mx-auto px-6 text-center space-y-8 md:space-y-12 max-w-5xl pt-24 md:pt-0 animate-fade-in">
+          <div className="space-y-4">
+            <h1 className="font-headline text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.85] md:leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
+              King <span className="text-primary block">Churros</span>
+            </h1>
+            <p className="font-body text-sm md:text-2xl text-white font-black tracking-[0.5em] uppercase drop-shadow-lg opacity-90">
               Fresh • Hot • Artisan
-            </p>
-            <p className="font-body text-white/70 text-[10px] md:text-lg leading-relaxed tracking-widest max-w-xs md:max-w-none mx-auto opacity-80">
-              The royal standard of desserts. <br className="hidden md:block" />
-              Handcrafted artisan churros made fresh to order.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-6 md:pt-8">
-            <Button className="w-full sm:w-auto rounded-full px-10 py-6 md:px-16 md:py-10 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-xs md:text-base shadow-xl h-auto">
+          <div className="max-w-2xl mx-auto">
+            <p className="font-body text-white/80 text-xs md:text-xl leading-relaxed tracking-widest opacity-80 uppercase px-4">
+              The royal standard of desserts. <br className="hidden md:block" />
+              Handcrafted artisan churros made fresh to order in the heart of Brixton.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8 pt-4">
+            <Button className="w-full sm:w-auto rounded-full px-12 py-7 md:px-16 md:py-10 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl h-auto">
               Order Now
             </Button>
             <Link href="/menu" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-6 md:px-16 md:py-10 border-white/20 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-xs md:text-base h-auto">
+              <Button variant="outline" className="w-full sm:w-auto rounded-full px-12 py-7 md:px-16 md:py-10 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base h-auto">
                 View Menu
               </Button>
             </Link>
           </div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-48 md:h-64 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
         
-        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 hidden lg:flex flex-col gap-6 text-white/40">
+        <div className="absolute bottom-8 left-8 hidden lg:flex flex-col gap-6 text-white/30">
           <a href="#" className="hover:text-primary transition-all"><Instagram size={20} /></a>
           <a href="#" className="hover:text-primary transition-all"><Facebook size={20} /></a>
         </div>
 
-        <div className="absolute bottom-10 right-10 hidden lg:block text-right">
-          <p className="text-[9px] font-black uppercase tracking-[0.8em] text-white/20 rotate-90 origin-right translate-x-10">
+        <div className="absolute bottom-12 right-12 hidden lg:block text-right">
+          <p className="text-[10px] font-black uppercase tracking-[1em] text-white/20 rotate-90 origin-right translate-x-12">
             SCROLL TO EXPERIENCE
           </p>
         </div>
