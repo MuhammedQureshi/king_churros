@@ -109,51 +109,55 @@ export function Hero() {
           ref={canvasRef}
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ 
-            filter: 'brightness(0.5)',
+            filter: 'brightness(0.4)',
             opacity: isReady ? 1 : 0,
             transition: 'opacity 1.5s ease-in-out'
           }}
         />
         
-        {/* Center Content for Better Impact */}
-        <div className="relative z-10 container mx-auto px-6 text-center space-y-8 max-w-4xl animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mb-4">
-            <MapPin size={14} className="text-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/80">
-              Located in Brixton
+        <div className="relative z-10 container mx-auto px-6 text-center space-y-12 max-w-5xl animate-fade-in">
+          <div className="inline-flex items-center gap-3 bg-black/50 backdrop-blur-xl px-6 py-3 rounded-full border border-white/10 mb-2">
+            <MapPin size={16} className="text-primary" />
+            <span className="text-xs font-black uppercase tracking-[0.4em] text-white/90">
+              Handcrafted in Brixton
             </span>
           </div>
 
-          <h1 className="font-headline text-6xl sm:text-7xl md:text-9xl font-black text-white leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
+          <h1 className="font-headline text-7xl sm:text-8xl md:text-[10rem] lg:text-[12rem] font-black text-white leading-[0.8] uppercase tracking-tighter drop-shadow-2xl">
             King <span className="text-primary block">Churros</span>
           </h1>
 
-          <div className="space-y-4 max-w-2xl mx-auto">
-            <p className="font-body text-lg md:text-2xl text-white font-black tracking-[0.3em] uppercase drop-shadow-lg">
-              Fresh • Hot • Handcrafted
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <p className="font-body text-xl md:text-3xl text-white font-black tracking-[0.4em] uppercase drop-shadow-lg">
+              Fresh • Hot • Artisan
             </p>
-            <p className="font-body text-white/80 text-sm md:text-base leading-relaxed tracking-wider drop-shadow-md">
-              Golden crispy churros made fresh to order in the heart of Brixton. <br className="hidden md:block" />
-              Claim your royal dessert experience.
+            <p className="font-body text-white/90 text-lg md:text-xl leading-relaxed tracking-wide drop-shadow-md bg-black/20 backdrop-blur-sm p-4 rounded-2xl">
+              Discover the royal standard of desserts. <br className="hidden md:block" />
+              Golden, crispy churros made fresh to order in the heart of Brixton.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-            <Button className="w-full sm:w-auto rounded-full px-12 py-8 bg-primary text-black hover:bg-white hover:scale-105 transition-all font-black tracking-widest uppercase text-sm shadow-2xl shadow-primary/20">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+            <Button className="w-full sm:w-auto rounded-full px-16 py-10 bg-primary text-black hover:bg-white hover:scale-105 transition-all font-black tracking-[0.2em] uppercase text-base shadow-2xl shadow-primary/30">
               Order Now
             </Button>
-            <Button variant="outline" className="w-full sm:w-auto rounded-full px-12 py-8 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all font-black tracking-widest uppercase text-sm">
+            <Button variant="outline" className="w-full sm:w-auto rounded-full px-16 py-10 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-base">
               View Menu
             </Button>
           </div>
         </div>
 
-        {/* Cinematic Visual Elements */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         
-        <div className="absolute bottom-12 left-12 hidden lg:flex flex-col gap-6 text-white/40">
-          <a href="#" className="hover:text-primary transition-colors"><Instagram size={20} /></a>
-          <a href="#" className="hover:text-primary transition-colors"><Facebook size={20} /></a>
+        <div className="absolute bottom-16 left-16 hidden lg:flex flex-col gap-8 text-white/50">
+          <a href="#" className="hover:text-primary transition-all hover:scale-110"><Instagram size={24} /></a>
+          <a href="#" className="hover:text-primary transition-all hover:scale-110"><Facebook size={24} /></a>
+        </div>
+
+        <div className="absolute bottom-16 right-16 hidden lg:block text-right">
+          <p className="text-[10px] font-black uppercase tracking-[0.8em] text-white/30 rotate-90 origin-right translate-x-12">
+            SCROLL TO EXPERIENCE
+          </p>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 const NAV_LINKS = [
   { label: 'About', href: '#product' },
   { label: 'Menu', href: '#menu' },
-  { label: 'Ingredients', href: '#ingredients' },
+  { label: 'Quality', href: '#ingredients' },
   { label: 'Reviews', href: '#reviews' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },

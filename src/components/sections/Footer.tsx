@@ -1,78 +1,87 @@
+
 import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-black pt-24 pb-12 border-t border-white/5">
+    <footer id="contact" className="bg-black pt-32 pb-16 border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-6">
-            <h2 className="font-headline text-3xl font-black text-white tracking-tight uppercase">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+          <div className="space-y-8">
+            <h2 className="font-headline text-4xl font-black text-white tracking-tight uppercase">
               King <span className="text-primary">Churros</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Premium handcrafted churros inspired by heritage and served with cinematic flair.
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xs">
+              Premium artisan churros served with royal flair in the heart of Brixton.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-all">
-                <Instagram size={18} />
+            <div className="flex space-x-6">
+              <a href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
+                <Instagram size={20} />
               </a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-all">
-                <Facebook size={18} />
+              <a href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
+                <Facebook size={20} />
               </a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-all">
-                <Twitter size={18} />
+              <a href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
+                <Twitter size={20} />
               </a>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-sm font-black uppercase tracking-widest text-white">The Menu</h3>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Classic Sticks</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Chocolate Dips</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Toppings Bar</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Drinks</a></li>
+          <div className="space-y-8">
+            <h3 className="text-xs font-black uppercase tracking-[0.5em] text-primary">Discover</h3>
+            <ul className="space-y-5">
+              <li><a href="#product" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">The Story</a></li>
+              <li><a href="#menu" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">The Menu</a></li>
+              <li><a href="#ingredients" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">The Quality</a></li>
+              <li><a href="#reviews" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Reviews</a></li>
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-sm font-black uppercase tracking-widest text-white">Utility</h3>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">About</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Privacy Policy</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">Terms</a></li>
+          <div className="space-y-8">
+            <h3 className="text-xs font-black uppercase tracking-[0.5em] text-primary">Utility</h3>
+            <ul className="space-y-5">
+              <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Order Online</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Catering</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Privacy</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Terms</a></li>
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-sm font-black uppercase tracking-widest text-white">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-center space-x-3 text-muted-foreground">
-                <Mail size={16} />
-                <span className="text-sm">hello@kingchurros.com</span>
+          <div className="space-y-8">
+            <h3 className="text-xs font-black uppercase tracking-[0.5em] text-primary">Contact</h3>
+            <ul className="space-y-6">
+              <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
+                  <Mail size={18} />
+                </div>
+                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">hello@kingchurros.com</span>
               </li>
-              <li className="flex items-center space-x-3 text-muted-foreground">
-                <Phone size={16} />
-                <span className="text-sm">+1 (555) 000-KING</span>
+              <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
+                  <Phone size={18} />
+                </div>
+                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">+1 (555) KING-000</span>
               </li>
-              <li className="flex items-center space-x-3 text-muted-foreground">
-                <MapPin size={16} />
-                <span className="text-sm">Royal Plaza, Suite 42</span>
+              <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
+                  <MapPin size={18} />
+                </div>
+                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">Brixton Market, SW9</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-center space-y-4 md:space-y-0">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">
-            &copy; {currentYear} King Churros. All rights reserved.
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-center space-y-6 md:space-y-0">
+          <p className="text-[10px] text-muted-foreground uppercase tracking-[0.5em] font-bold">
+            &copy; {currentYear} King Churros. Crafted for Royalty.
           </p>
-          <p className="text-[10px] text-white/20 uppercase tracking-[0.5em]">
-            Crafted for Royalty
-          </p>
+          <div className="flex gap-8 text-[10px] text-white/20 uppercase tracking-[0.5em]">
+            <span>London</span>
+            <span>Madrid</span>
+            <span>Paris</span>
+          </div>
         </div>
       </div>
     </footer>
