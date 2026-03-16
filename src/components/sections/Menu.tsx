@@ -90,7 +90,7 @@ export function Menu() {
 
         <div className="mt-12 md:mt-20 text-center">
           <Link href="/menu">
-            <Button className="rounded-full px-8 py-5 md:px-16 md:py-10 bg-white text-black hover:bg-primary hover:text-black transition-all font-black tracking-[0.2em] uppercase text-[10px] md:text-lg shadow-2xl group w-full md:w-auto">
+            <Button className="rounded-full px-8 py-4 md:px-16 md:py-10 bg-white text-black hover:bg-primary hover:text-black transition-all font-black tracking-[0.2em] uppercase text-[10px] md:text-lg shadow-2xl group w-full md:w-auto h-auto">
               Explore Full Menu
               <span className="ml-4 group-hover:translate-x-2 transition-transform inline-block">→</span>
             </Button>

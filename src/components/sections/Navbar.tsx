@@ -75,7 +75,7 @@ export function Navbar() {
                 <MenuIcon size={24} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/98 border-white/10 text-white flex flex-col justify-center p-10">
+            <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10 text-white flex flex-col justify-center p-10 z-[70]">
               <SheetTitle className="sr-only">Menu Navigation</SheetTitle>
               <div className="space-y-8 text-center flex flex-col items-center">
                 {NAV_LINKS.map((link) => (
