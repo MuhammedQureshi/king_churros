@@ -9,24 +9,28 @@ import { Button } from '@/components/ui/button';
 const FEATURED_ITEMS = [
   {
     id: 'churro_filled',
+    img: 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/images/Churros%20Filled%20(4pcs).png',
     title: 'Churros Filled (4pcs)',
     description: 'Delicious churros filled with your choice of sweet, creamy goodness.',
     tag: 'Artisan Choice'
   },
   {
     id: 'churro_box',
+    img: 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/images/Churros%20Box%20(7%20Sticks).png',
     title: 'Churros Box (7 Sticks)',
     description: 'A delightful box of classic churros, perfect for an individual treat or sharing.',
     tag: 'Classic'
   },
   {
     id: 'churro_family',
+    img: 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/images/familyBox.png',
     title: 'Family Box (24 Sticks)',
     description: 'A generous box containing 24 churros sticks, ideal for family gatherings or parties.',
     tag: 'Royal Feast'
   },
   {
     id: 'churro_decorated',
+    img: 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/images/decorated.png',
     title: 'Decorated Churros (1 Churro)',
     description: 'Delicious churros enhanced with special decorations or extra toppings.',
     tag: 'Gourmet'
@@ -51,7 +55,7 @@ export function Menu() {
                 <div className="flex flex-col h-full">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
-                      src={imgData?.imageUrl || 'https://placehold.co/800x600'}
+                      src={item.img}
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-[1.5s] group-hover:scale-110"
