@@ -8,10 +8,79 @@ const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
 
 export function Hero() {
-  const [currentFrame, setCurrentFrame] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const [isReady, setIsReady] = useState(false);
+
+  // Preload images for Canvas to avoid flickering
+  useEffect(() => {
+    let loadedCount = 0;
+    const images: HTMLImageElement[] = [];
+
+    const handleLoad = () => {
+      loadedCount++;
+      if (loadedCount === TOTAL_FRAMES) {
+        setIsReady(true);
+      }
+    };
+
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      const frameIndex = i.toString().padStart(3, '0');
+      img.src = `${FRAME_URL_BASE}${frameIndex}_delay-0.041s.png`;
+      img.onload = handleLoad;
+      img.onerror = handleLoad; // Continue if one fails
+      images.push(img);
+    }
+    imagesRef.current = images;
+  }, []);
 
   useEffect(() => {
+    if (!isReady) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d', { alpha: false });
+    if (!context) return;
+
+    const renderFrame = (index: number) => {
+      const img = imagesRef.current[index];
+      if (!img || !context) return;
+
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      
+      const imgAspect = img.width / img.height;
+      const canvasAspect = canvasWidth / canvasHeight;
+      
+      let drawWidth, drawHeight, offsetX, offsetY;
+
+      if (canvasAspect > imgAspect) {
+        drawWidth = canvasWidth;
+        drawHeight = canvasWidth / imgAspect;
+        offsetX = 0;
+        offsetY = (canvasHeight - drawHeight) / 2;
+      } else {
+        drawWidth = canvasHeight * imgAspect;
+        drawHeight = canvasHeight;
+        offsetX = (canvasWidth - drawWidth) / 2;
+        offsetY = 0;
+      }
+
+      context.fillStyle = '#000';
+      context.fillRect(0, 0, canvasWidth, canvasHeight);
+      context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+    };
+
+    const resizeCanvas = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      handleScroll(); // Redraw immediately
+    };
+
+    let requestRef: number;
     const handleScroll = () => {
       if (!containerRef.current) return;
       
@@ -19,26 +88,37 @@ export function Hero() {
       const scrollHeight = containerRef.current.scrollHeight - window.innerHeight;
       const scrollProgress = Math.max(0, Math.min(1, Math.abs(rect.top) / scrollHeight));
       
-      const frame = Math.floor(scrollProgress * (TOTAL_FRAMES - 1));
-      setCurrentFrame(frame);
+      const frameIndex = Math.min(
+        TOTAL_FRAMES - 1,
+        Math.floor(scrollProgress * TOTAL_FRAMES)
+      );
+      
+      cancelAnimationFrame(requestRef);
+      requestRef = requestAnimationFrame(() => renderFrame(frameIndex));
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-  const frameIndex = currentFrame.toString().padStart(3, '0');
-  const imageUrl = `${FRAME_URL_BASE}${frameIndex}_delay-0.041s.png`;
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(requestRef);
+    };
+  }, [isReady]);
 
   return (
     <div ref={containerRef} className="parallax-container">
       <div className="sticky-hero flex items-center">
-        {/* Animated Background */}
-        <div 
-          className="absolute inset-0 bg-center bg-cover transition-none duration-0"
+        {/* Animated Background Canvas */}
+        <canvas 
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ 
-            backgroundImage: `url(${imageUrl})`,
-            filter: 'brightness(0.7)' 
+            filter: 'brightness(0.7)',
+            opacity: isReady ? 1 : 0,
+            transition: 'opacity 1s ease-in-out'
           }}
         />
         
