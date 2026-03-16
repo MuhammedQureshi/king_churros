@@ -1,5 +1,4 @@
 
-
 import { Check } from 'lucide-react';
 
 const QUALITY_PILLARS = [
@@ -41,7 +40,6 @@ export function Ingredients() {
           </div>
 
           <div className="relative p-8 md:p-12 lg:p-20 bg-primary rounded-3xl md:rounded-[4rem] shadow-3xl shadow-primary/10 group overflow-hidden">
-            <div className="absolute top-10 right-10 opacity-5 font-headline text-[10rem] md:text-[15rem] font-black text-black pointer-events-none group-hover:scale-110 transition-transform duration-1000">Q</div>
             <div className="relative z-10 space-y-8 md:space-y-10">
               <div className="space-y-2 md:space-y-4">
                 <span className="text-black/50 font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">The Promise</span>
@@ -49,19 +47,19 @@ export function Ingredients() {
               </div>
               <ul className="space-y-4 md:space-y-6">
                 <li className="flex items-start gap-3 md:gap-4">
-                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">01</span>
-                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Zero Artificial Additives</p>
+                  <div className="w-2 h-2 rounded-full bg-black/30 mt-1.5 md:mt-2" />
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm">Zero Artificial Additives</p>
                 </li>
                 <li className="flex items-start gap-3 md:gap-4">
-                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">02</span>
-                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Hand-piped to Order</p>
+                  <div className="w-2 h-2 rounded-full bg-black/30 mt-1.5 md:mt-2" />
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm">Hand-piped to Order</p>
                 </li>
                 <li className="flex items-start gap-3 md:gap-4">
-                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">03</span>
-                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Sourced Locally in London</p>
+                  <div className="w-2 h-2 rounded-full bg-black/30 mt-1.5 md:mt-2" />
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm">Sourced Locally in London</p>
                 </li>
               </ul>
-              <button className="w-full md:w-auto bg-black text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all">
+              <button className="w-full md:w-auto bg-black text-white px-8 md:px-10 py-4 md:py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all">
                 Learn About Our Source
               </button>
             </div>
@@ -71,4 +69,3 @@ export function Ingredients() {
     </section>
   );
 }
-

@@ -136,11 +136,11 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8 pt-4">
-            <Button className="w-full sm:w-auto rounded-full px-10 py-5 md:px-12 md:py-6 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl h-auto">
+            <Button className="w-full sm:w-auto rounded-full px-10 py-5 md:px-10 md:py-5 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl h-auto">
               Order Now
             </Button>
             <Link href="/menu" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-5 md:px-12 md:py-6 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base h-auto">
+              <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-5 md:px-10 md:py-5 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base h-auto">
                 View Menu
               </Button>
             </Link>

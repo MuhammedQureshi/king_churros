@@ -12,7 +12,7 @@ export function ProductStory() {
           <div className="relative order-2 lg:order-1">
             <div className="relative aspect-square md:aspect-video lg:aspect-square group overflow-hidden rounded-3xl md:rounded-[4rem] shadow-2xl border border-white/5">
               <Image
-                src={imgData?.imageUrl || "https://picsum.photos/seed/churro-about/800/800"}
+                src='https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/images/about.png'
                 alt="Our Heritage - King Churros"
                 fill
                 className="object-cover transition-transform duration-[2s] group-hover:scale-105"
