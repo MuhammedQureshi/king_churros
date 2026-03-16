@@ -176,7 +176,7 @@ export default function MenuPage() {
           <h2 className="font-headline text-2xl md:text-4xl font-black text-white uppercase tracking-tight mb-8">
             Order for Delivery or Collection
           </h2>
-          <button className="rounded-full px-10 py-6 md:px-16 md:py-10 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-lg shadow-2xl">
+          <button className="rounded-full px-10 py-5 md:px-12 md:py-6 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl">
             Place Your Order Now
           </button>
         </div>
