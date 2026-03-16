@@ -1,4 +1,6 @@
 
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -33,19 +35,19 @@ const FEATURED_ITEMS = [
 
 export function Menu() {
   return (
-    <section id="menu" className="py-32 bg-background">
+    <section id="menu" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center mb-24 space-y-6">
-          <h2 className="font-headline text-primary text-lg font-bold tracking-[0.5em] uppercase">The Collection</h2>
-          <h3 className="font-headline text-6xl md:text-8xl font-black text-white uppercase tracking-tighter">The Royal Menu</h3>
-          <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full" />
+        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24 space-y-4 md:space-y-6">
+          <h2 className="font-headline text-primary text-sm md:text-lg font-bold tracking-[0.5em] uppercase">The Collection</h2>
+          <h3 className="font-headline text-4xl md:text-8xl font-black text-white uppercase tracking-tighter">The Royal Menu</h3>
+          <div className="w-20 md:w-32 h-1 bg-primary/30 mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           {FEATURED_ITEMS.map((item) => {
             const imgData = PlaceHolderImages.find(img => img.id === item.id);
             return (
-              <div key={item.id} className="group relative bg-card/40 backdrop-blur-sm rounded-[3rem] overflow-hidden border border-white/5 hover:border-primary/40 transition-all duration-700 hover:-translate-y-4 shadow-3xl">
+              <div key={item.id} className="group relative bg-card/40 backdrop-blur-sm rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/5 hover:border-primary/40 transition-all duration-700 hover:-translate-y-2 md:hover:-translate-y-4 shadow-2xl md:shadow-3xl">
                 <div className="flex flex-col h-full">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
@@ -56,27 +58,27 @@ export function Menu() {
                       data-ai-hint={imgData?.imageHint}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute top-8 left-8">
-                      <span className="bg-primary text-black text-[10px] font-black uppercase px-4 py-2 rounded-full tracking-widest shadow-2xl">
+                    <div className="absolute top-4 left-4 md:top-8 md:left-8">
+                      <span className="bg-primary text-black text-[8px] md:text-[10px] font-black uppercase px-3 py-1.5 md:px-4 md:py-2 rounded-full tracking-widest shadow-2xl">
                         {item.tag}
                       </span>
                     </div>
                   </div>
                   
-                  <div className="p-10 flex flex-col justify-between flex-grow space-y-6">
-                    <div className="space-y-4">
-                      <h4 className="font-headline text-3xl font-black text-white uppercase tracking-tight group-hover:text-primary transition-colors leading-none">
+                  <div className="p-6 md:p-10 flex flex-col justify-between flex-grow space-y-4 md:space-y-6">
+                    <div className="space-y-2 md:space-y-4">
+                      <h4 className="font-headline text-2xl md:text-3xl font-black text-white uppercase tracking-tight group-hover:text-primary transition-colors leading-none">
                         {item.title}
                       </h4>
-                      <p className="text-muted-foreground text-lg leading-relaxed font-body font-medium">
+                      <p className="text-muted-foreground text-sm md:text-lg leading-relaxed font-body font-medium">
                         {item.description}
                       </p>
                     </div>
                     
-                    <div className="pt-8 border-t border-white/5 flex items-center justify-between">
+                    <div className="pt-4 md:pt-8 border-t border-white/5 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Made Fresh Daily</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Made Fresh Daily</span>
                       </div>
                     </div>
                   </div>
@@ -86,9 +88,9 @@ export function Menu() {
           })}
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-12 md:mt-20 text-center">
           <Link href="/menu">
-            <Button className="rounded-full px-16 py-10 bg-white text-black hover:bg-primary hover:text-black transition-all font-black tracking-[0.2em] uppercase text-lg shadow-2xl group">
+            <Button className="rounded-full px-8 py-6 md:px-16 md:py-10 bg-white text-black hover:bg-primary hover:text-black transition-all font-black tracking-[0.2em] uppercase text-sm md:text-lg shadow-2xl group w-full md:w-auto">
               Explore Full Menu
               <span className="ml-4 group-hover:translate-x-2 transition-transform inline-block">→</span>
             </Button>

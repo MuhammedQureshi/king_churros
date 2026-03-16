@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu as MenuIcon, X } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/components/ui/sheet';
 import Link from 'next/link';
 
 const NAV_LINKS = [
@@ -19,6 +19,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +69,7 @@ export function Navbar() {
 
         {/* Mobile Nav */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <button className="text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
                 <MenuIcon size={24} />
@@ -78,17 +79,24 @@ export function Navbar() {
               <SheetTitle className="sr-only">Menu Navigation</SheetTitle>
               <div className="space-y-8 text-center">
                 {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="block text-3xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  <SheetClose asChild key={link.href}>
+                    <a
+                      href={link.href}
+                      className="block text-3xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  </SheetClose>
                 ))}
-                <button className="w-full bg-primary text-black py-4 rounded-full text-xs font-black uppercase tracking-widest mt-8 shadow-xl">
-                  Order Now
-                </button>
+                <SheetClose asChild>
+                  <button 
+                    className="w-full bg-primary text-black py-4 rounded-full text-xs font-black uppercase tracking-widest mt-8 shadow-xl"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Order Now
+                  </button>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>

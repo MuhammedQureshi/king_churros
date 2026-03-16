@@ -4,6 +4,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Instagram, Facebook, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
@@ -115,39 +116,41 @@ export function Hero() {
           }}
         />
         
-        <div className="relative z-10 container mx-auto px-6 text-center space-y-6 md:space-y-10 max-w-4xl pt-16 md:pt-0 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mb-2">
-            <MapPin size={14} className="text-primary" />
-            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white/90">
+        <div className="relative z-10 container mx-auto px-6 text-center space-y-6 md:space-y-10 max-w-4xl pt-20 md:pt-0 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10 mb-2">
+            <MapPin size={12} className="text-primary md:size-14" />
+            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/90">
               Handcrafted in Brixton
             </span>
           </div>
 
-          <h1 className="font-headline text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
+          <h1 className="font-headline text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.95] md:leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
             King <span className="text-primary block">Churros</span>
           </h1>
 
-          <div className="space-y-4 max-w-2xl mx-auto">
-            <p className="font-body text-base md:text-2xl text-white font-black tracking-[0.3em] uppercase drop-shadow-lg">
+          <div className="space-y-3 md:space-y-4 max-w-2xl mx-auto">
+            <p className="font-body text-sm md:text-2xl text-white font-black tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-lg">
               Fresh • Hot • Artisan
             </p>
-            <p className="font-body text-white/80 text-sm md:text-lg leading-relaxed tracking-wide drop-shadow-md bg-black/10 backdrop-blur-[2px] p-3 rounded-xl md:bg-transparent md:backdrop-blur-none">
+            <p className="font-body text-white/80 text-xs md:text-lg leading-relaxed tracking-wide drop-shadow-md bg-black/20 backdrop-blur-[2px] p-4 rounded-2xl md:bg-transparent md:backdrop-blur-none mx-auto max-w-xs md:max-w-none">
               Discover the royal standard of desserts. <br className="hidden md:block" />
               Golden, crispy churros made fresh to order in the heart of Brixton.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-6 md:pt-8">
-            <Button className="w-full sm:w-auto rounded-full px-10 py-7 md:px-16 md:py-10 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-xs md:text-base shadow-xl">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4 md:pt-8">
+            <Button className="w-full sm:w-auto rounded-full px-10 py-6 md:px-16 md:py-10 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-[10px] md:text-base shadow-xl">
               Order Now
             </Button>
-            <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-7 md:px-16 md:py-10 border-white/30 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-xs md:text-base">
-              View Menu
-            </Button>
+            <Link href="/menu" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-6 md:px-16 md:py-10 border-white/30 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-[10px] md:text-base">
+                View Menu
+              </Button>
+            </Link>
           </div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         
         <div className="absolute bottom-10 left-10 hidden lg:flex flex-col gap-6 text-white/40">
           <a href="#" className="hover:text-primary transition-all"><Instagram size={20} /></a>
