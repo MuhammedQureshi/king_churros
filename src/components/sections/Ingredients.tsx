@@ -1,4 +1,5 @@
 
+
 import { Check } from 'lucide-react';
 
 const QUALITY_PILLARS = [
@@ -10,57 +11,57 @@ const QUALITY_PILLARS = [
 
 export function Ingredients() {
   return (
-    <section id="ingredients" className="py-32 bg-card/30">
+    <section id="ingredients" className="py-20 md:py-32 bg-card/30">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="font-headline text-primary text-lg font-bold tracking-[0.5em] uppercase">The Standards</h2>
-              <h3 className="font-headline text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85]">
-                Uncompromising <br /> Quality
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20 items-center">
+          <div className="space-y-8 md:space-y-12">
+            <div className="space-y-4 md:space-y-6 text-center lg:text-left">
+              <h2 className="font-headline text-primary text-sm md:text-lg font-bold tracking-[0.5em] uppercase">The Standards</h2>
+              <h3 className="font-headline text-4xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[1] md:leading-[0.85]">
+                Uncompromising <br className="hidden md:block" /> Quality
               </h3>
-              <p className="text-muted-foreground text-xl max-w-xl font-medium leading-relaxed">
+              <p className="text-muted-foreground text-lg md:text-xl max-w-xl font-medium leading-relaxed mx-auto lg:mx-0">
                 We believe that the simplest pleasures should be held to the highest standards. Every churro we serve is a testament to our dedication to purity and heritage.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {QUALITY_PILLARS.map((pillar, i) => (
-                <div key={i} className="space-y-3">
+                <div key={i} className="space-y-2 md:space-y-3 p-4 md:p-0 bg-white/5 md:bg-transparent rounded-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Check size={14} className="text-primary" />
+                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                      <Check size={12} className="text-primary" />
                     </div>
-                    <h4 className="font-headline text-xl font-black text-white uppercase tracking-tight">{pillar.name}</h4>
+                    <h4 className="font-headline text-lg md:text-xl font-black text-white uppercase tracking-tight">{pillar.name}</h4>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{pillar.desc}</p>
+                  <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">{pillar.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative p-12 lg:p-20 bg-primary rounded-[4rem] shadow-3xl shadow-primary/20 group">
-            <div className="absolute top-10 right-10 opacity-10 font-headline text-[15rem] font-black text-black pointer-events-none group-hover:scale-110 transition-transform duration-1000">Q</div>
-            <div className="relative z-10 space-y-10">
-              <div className="space-y-4">
-                <span className="text-black/50 font-black uppercase tracking-[0.5em] text-xs">The Promise</span>
-                <h4 className="font-headline text-5xl font-black text-black uppercase tracking-tighter leading-none">The Crown Standard</h4>
+          <div className="relative p-8 md:p-12 lg:p-20 bg-primary rounded-3xl md:rounded-[4rem] shadow-3xl shadow-primary/10 group overflow-hidden">
+            <div className="absolute top-10 right-10 opacity-5 font-headline text-[10rem] md:text-[15rem] font-black text-black pointer-events-none group-hover:scale-110 transition-transform duration-1000">Q</div>
+            <div className="relative z-10 space-y-8 md:space-y-10">
+              <div className="space-y-2 md:space-y-4">
+                <span className="text-black/50 font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">The Promise</span>
+                <h4 className="font-headline text-3xl md:text-5xl font-black text-black uppercase tracking-tighter leading-none">The Crown Standard</h4>
               </div>
-              <ul className="space-y-6">
-                <li className="flex items-start gap-4">
-                  <span className="font-headline text-3xl font-black text-black/30">01</span>
-                  <p className="text-black font-black uppercase tracking-widest text-sm pt-2">Zero Artificial Additives</p>
+              <ul className="space-y-4 md:space-y-6">
+                <li className="flex items-start gap-3 md:gap-4">
+                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">01</span>
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Zero Artificial Additives</p>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="font-headline text-3xl font-black text-black/30">02</span>
-                  <p className="text-black font-black uppercase tracking-widest text-sm pt-2">Hand-piped to Order</p>
+                <li className="flex items-start gap-3 md:gap-4">
+                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">02</span>
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Hand-piped to Order</p>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="font-headline text-3xl font-black text-black/30">03</span>
-                  <p className="text-black font-black uppercase tracking-widest text-sm pt-2">Sourced Locally in London</p>
+                <li className="flex items-start gap-3 md:gap-4">
+                  <span className="font-headline text-2xl md:text-3xl font-black text-black/30">03</span>
+                  <p className="text-black font-black uppercase tracking-widest text-[10px] md:text-sm pt-1 md:pt-2">Sourced Locally in London</p>
                 </li>
               </ul>
-              <button className="bg-black text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all">
+              <button className="w-full md:w-auto bg-black text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all">
                 Learn About Our Source
               </button>
             </div>
@@ -70,3 +71,4 @@ export function Ingredients() {
     </section>
   );
 }
+
