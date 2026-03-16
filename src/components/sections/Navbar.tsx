@@ -41,7 +41,7 @@ export function Navbar() {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 px-4 md:px-12",
-      scrolled ? "bg-black/85 backdrop-blur-2xl border-b border-white/10 py-3" : "bg-transparent py-4 md:py-6"
+      scrolled ? "bg-black/90 backdrop-blur-2xl border-b border-white/10 py-3" : "bg-transparent py-4 md:py-6"
     )}>
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
         <Link href="/" className="font-headline text-xl md:text-3xl font-black tracking-tight text-white uppercase group flex items-center gap-2">
@@ -77,26 +77,23 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-black/98 border-white/10 text-white flex flex-col justify-center p-10">
               <SheetTitle className="sr-only">Menu Navigation</SheetTitle>
-              <div className="space-y-8 text-center">
+              <div className="space-y-8 text-center flex flex-col items-center">
                 {NAV_LINKS.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <a
-                      href={link.href}
-                      className="block text-3xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  </SheetClose>
-                ))}
-                <SheetClose asChild>
-                  <button 
-                    className="w-full bg-primary text-black py-4 rounded-full text-xs font-black uppercase tracking-widest mt-8 shadow-xl"
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block text-3xl font-headline font-black uppercase tracking-tighter hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Order Now
-                  </button>
-                </SheetClose>
+                    {link.label}
+                  </a>
+                ))}
+                <button 
+                  className="w-full max-w-[240px] bg-primary text-black py-4 rounded-full text-xs font-black uppercase tracking-widest mt-8 shadow-xl"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Order Now
+                </button>
               </div>
             </SheetContent>
           </Sheet>
