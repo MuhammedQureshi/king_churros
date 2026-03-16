@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Progress } from '@/components/ui/progress';
 
-const TOTAL_FRAMES = 90;
+const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
 
 export function LoadingScreen() {

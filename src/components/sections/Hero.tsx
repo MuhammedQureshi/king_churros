@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
 
-const TOTAL_FRAMES = 90;
+const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
 
 export function Hero() {
