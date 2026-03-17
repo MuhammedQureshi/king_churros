@@ -1,7 +1,8 @@
 
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Mail, MapPin } from 'lucide-react';
 
 const ORDER_URL = "https://www.just-eat.co.uk/restaurants-king-churros-nine-elms-sw9/menu?serviceType=collection&utm_source=google&utm_medium=organic&utm_campaign=foodorder";
+const INSTA_URL = "https://www.instagram.com/kingchurroslondon?igsh=bWJuZDc1cm12eWY0";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,7 +19,7 @@ export function Footer() {
               Premium artisan churros served with royal flair in the heart of Brixton.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
+              <a href={INSTA_URL} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
                 <Instagram size={20} />
               </a>
               <a href="#" className="p-3 bg-white/5 rounded-2xl hover:bg-primary hover:text-black transition-all hover:-translate-y-1">
@@ -59,12 +60,6 @@ export function Footer() {
                 </div>
                 <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">hello@kingchurros.com</span>
               </li>
-              {/* <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
-                  <Phone size={18} />
-                </div>
-                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">+1 (555) KING-000</span>
-              </li> */}
               <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
                   <MapPin size={18} />

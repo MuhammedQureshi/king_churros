@@ -9,6 +9,7 @@ import Link from 'next/link';
 const TOTAL_FRAMES = 200;
 const FRAME_URL_BASE = 'https://cvesqxpcirhvoxxddctl.supabase.co/storage/v1/object/public/webp/frame_';
 const ORDER_URL = "https://www.just-eat.co.uk/restaurants-king-churros-nine-elms-sw9/menu?serviceType=collection&utm_source=google&utm_medium=organic&utm_campaign=foodorder";
+const INSTA_URL = "https://www.instagram.com/kingchurroslondon?igsh=bWJuZDc1cm12eWY0";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -138,12 +139,12 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8 pt-4">
             <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto rounded-full px-10 py-5 md:px-10 md:py-5 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl h-auto">
+              <Button className="w-full sm:w-auto rounded-full px-8 py-4 md:px-10 md:py-6 bg-primary text-black hover:bg-white transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base shadow-2xl h-auto">
                 Order Now
               </Button>
             </a>
             <Link href="/menu" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full sm:w-auto rounded-full px-10 py-5 md:px-10 md:py-5 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base h-auto">
+              <Button variant="outline" className="w-full sm:w-auto rounded-full px-8 py-4 md:px-10 md:py-6 border-white/40 text-white hover:bg-white/10 backdrop-blur-md transition-all font-black tracking-[0.2em] uppercase text-sm md:text-base h-auto">
                 View Menu
               </Button>
             </Link>
@@ -153,8 +154,12 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-48 md:h-64 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
         
         <div className="absolute bottom-8 left-8 hidden lg:flex flex-col gap-6 text-white/30">
-          <a href="#" className="hover:text-primary transition-all"><Instagram size={20} /></a>
-          <a href="#" className="hover:text-primary transition-all"><Facebook size={20} /></a>
+          <a href={INSTA_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-all">
+            <Instagram size={20} />
+          </a>
+          <a href="#" className="hover:text-primary transition-all">
+            <Facebook size={20} />
+          </a>
         </div>
 
         <div className="absolute bottom-12 right-12 hidden lg:block text-right">
