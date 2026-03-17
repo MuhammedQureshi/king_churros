@@ -1,6 +1,8 @@
 
 import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from 'lucide-react';
 
+const ORDER_URL = "https://www.just-eat.co.uk/restaurants-king-churros-nine-elms-sw9/menu?serviceType=collection&utm_source=google&utm_medium=organic&utm_campaign=foodorder";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -41,7 +43,7 @@ export function Footer() {
           <div className="space-y-8">
             <h3 className="text-xs font-black uppercase tracking-[0.5em] text-primary">Utility</h3>
             <ul className="space-y-5">
-              <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Order Online</a></li>
+              <li><a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Order Online</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Catering</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Privacy</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.3em]">Terms</a></li>

@@ -16,6 +16,8 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const ORDER_URL = "https://www.just-eat.co.uk/restaurants-king-churros-nine-elms-sw9/menu?serviceType=collection&utm_source=google&utm_medium=organic&utm_campaign=foodorder";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -64,9 +66,14 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <button className="bg-primary text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-primary/20">
+          <a 
+            href={ORDER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-primary/20"
+          >
             Order Now
-          </button>
+          </a>
         </div>
 
         {/* Mobile Nav */}
@@ -93,12 +100,15 @@ export function Navbar() {
                     {link.label}
                   </a>
                 ))}
-                <button 
-                  className="w-full max-w-[280px] bg-primary text-black py-5 rounded-full text-sm font-black uppercase tracking-widest mt-10 shadow-2xl"
+                <a 
+                  href={ORDER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full max-w-[280px] bg-primary text-black py-5 rounded-full text-sm font-black uppercase tracking-widest mt-10 shadow-2xl text-center"
                   onClick={closeMenu}
                 >
                   Order Now
-                </button>
+                </a>
               </div>
             </SheetContent>
           </Sheet>

@@ -1,5 +1,8 @@
 
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+
+const ORDER_URL = "https://www.just-eat.co.uk/restaurants-king-churros-nine-elms-sw9/menu?serviceType=collection&utm_source=google&utm_medium=organic&utm_campaign=foodorder";
 
 export function FinalCTA() {
   return (
@@ -15,12 +18,16 @@ export function FinalCTA() {
           The throne is yours. Grab a stick and claim your reward.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 pt-4">
-          <Button variant="outline" className="w-full sm:w-auto rounded-full px-8 py-5 md:px-10 md:py-6 border-white text-white hover:bg-white hover:text-accent transition-all font-black tracking-widest uppercase text-sm md:text-base shadow-xl">
-            Order Now
-          </Button>
-          <Button className="w-full sm:w-auto rounded-full px-8 py-5 md:px-10 md:py-6 bg-white text-black hover:bg-black hover:text-white transition-all font-black tracking-widest uppercase text-sm md:text-base shadow-xl">
-            View Menu
-          </Button>
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <Button variant="outline" className="w-full sm:w-auto rounded-full px-8 py-5 md:px-10 md:py-6 border-white text-white hover:bg-white hover:text-accent transition-all font-black tracking-widest uppercase text-sm md:text-base shadow-xl">
+              Order Now
+            </Button>
+          </a>
+          <Link href="/menu" className="w-full sm:w-auto">
+            <Button className="w-full sm:w-auto rounded-full px-8 py-5 md:px-10 md:py-6 bg-white text-black hover:bg-black hover:text-white transition-all font-black tracking-widest uppercase text-sm md:text-base shadow-xl">
+              View Menu
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
