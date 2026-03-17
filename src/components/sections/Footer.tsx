@@ -59,17 +59,17 @@ export function Footer() {
                 </div>
                 <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">hello@kingchurros.com</span>
               </li>
-              <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
+              {/* <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
                   <Phone size={18} />
                 </div>
                 <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">+1 (555) KING-000</span>
-              </li>
+              </li> */}
               <li className="flex items-center space-x-4 text-muted-foreground group cursor-pointer">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all">
                   <MapPin size={18} />
                 </div>
-                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">Brixton Market, SW9</span>
+                <span className="text-sm font-bold uppercase tracking-widest group-hover:text-white transition-colors">426 Brixton Rd, London SW9 7AY</span>
               </li>
             </ul>
           </div>
@@ -81,8 +81,6 @@ export function Footer() {
           </p>
           <div className="flex gap-8 text-[10px] text-white/20 uppercase tracking-[0.5em]">
             <span>London</span>
-            <span>Madrid</span>
-            <span>Paris</span>
           </div>
         </div>
       </div>

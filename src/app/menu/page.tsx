@@ -79,29 +79,6 @@ const MENU_DATA = [
         description: "Six mini traditional Brazilian pastries, typically filled with beef. (Subject to availability)."
       }
     ]
-  },
-  {
-    category: "Drinks",
-    items: [
-      {
-        id: "drinks_cola",
-        img: 'https://picsum.photos/seed/cola/600/400',
-        title: "Coca-Cola Original Taste 330ml",
-        description: "Sparkling Soft Drink with Plant Extracts."
-      },
-      {
-        id: "drinks_fanta",
-        img: 'https://picsum.photos/seed/fanta/600/400',
-        title: "Fanta Orange 330ml Can",
-        description: "Sparkling Orange Fruit Drink with Sugar and Sweeteners."
-      },
-      {
-        id: "drinks_guarana",
-        img: 'https://picsum.photos/seed/guarana-can/600/400',
-        title: "Guaraná 330ml",
-        description: "A refreshing and popular Brazilian soft drink. Refreshing, sweet and slightly fruity."
-      }
-    ]
   }
 ];
 
